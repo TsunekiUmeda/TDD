@@ -1,0 +1,5 @@
+$5 + 10 CHF = $10 (レートが２：１の場合）
+✅$5 * 2 = $10
+amount をprivate にする
+✅Dollarの副作用
+Moneyの丸め処理
