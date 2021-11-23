@@ -1,6 +1,10 @@
 package money;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Money implements Expression {
+    private Map<Pair, Integer> rates = new HashMap<>();
     protected int amount;
     protected String currency;
 
@@ -27,8 +31,9 @@ public class Money implements Expression {
         return new Sum(this, addend);
     }
 
-    public Money reduce(String to) {
-        return this;
+    public Money reduce(Bank bank, String to) {
+        int rate = bank.rate(currency, to);
+        return new Money(amount / rate, to);
     }
 
     static Money dollar(int amount) {
